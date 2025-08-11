@@ -1,0 +1,386 @@
+/* Google Fonts - Poppins */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #0d6efd; /* Màu xanh BTEC */
+            --secondary-color: #6c757d; /* Màu xám */
+            --background-color: #f7f7f7; /* Nền sáng, gần với màu trắng */
+            --card-bg-color: #ffffff; /* Nền trắng cho các box */
+            --sidebar-bg-color: #2c3e50; /* Xanh than đậm cho sidebar */
+            --sidebar-link-color: #ecf0f1; /* Trắng xám cho chữ */
+            --sidebar-active-color: #ffffff; /* Trắng cho link active */
+            --border-color: #dee2e6; /* Màu viền nhạt */
+            --text-color: #34495e; /* Màu chữ chính */
+            --heading-color: #2c3e50; /* Màu tiêu đề đậm */
+            --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ nhàng */
+            --hover-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15); /* Đổ bóng khi hover */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 10px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: width 0.3s ease;
+            flex-shrink: 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .sidebar-logo {
+            background-color: white;
+            color: #34495e;
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: 600;
+            margin: 0 10px 25px 10px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .sidebar-logo i {
+            font-size: 1.2rem;
+            color: #34495e;
+        }
+        
+        .sidebar a {
+            background-color: white;
+            color: #34495e;
+            text-decoration: none;
+            padding: 15px 20px;
+            margin: 0 10px 12px 10px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .sidebar a.active {
+            background-color: #0d6efd;
+            color: white;
+            font-weight: 600;
+            box-shadow: var(--hover-shadow);
+        }
+
+        .sidebar a.active:hover {
+            background-color: #0a58ca;
+        }
+        
+        /* Main Wrapper */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Topbar */
+        .inner-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: var(--card-bg-color);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+
+        .right-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon {
+            position: relative;
+            cursor: pointer;
+            color: var(--secondary-color);
+            transition: color 0.3s;
+        }
+
+        .icon i {
+            font-size: 1.5rem;
+        }
+
+        .icon:hover {
+            color: var(--primary-color);
+        }
+
+        .notification-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 50%;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #4CAF50; /* Màu avatar trong ảnh */
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #5cb85c; /* Màu viền tương ứng */
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .main-content h2 {
+            font-size: 1.8rem;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+        .main-content h3 {
+            font-size: 1.5rem;
+            color: var(--heading-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Form Styles */
+        .account-form table {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: var(--card-bg-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 25px;
+            border-collapse: collapse;
+        }
+
+        .account-form table td {
+            padding: 15px;
+            vertical-align: top; /* Căn trên để các label thẳng hàng */
+        }
+
+        .account-form label {
+            font-weight: 500;
+            color: #555;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .account-form input,
+        .account-form select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .account-form input:focus,
+        .account-form select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+        }
+
+        .account-form input[readonly] {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+
+        .account-form button {
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            float: right; /* Đẩy nút sang phải */
+            margin-top: 10px;
+        }
+
+        .account-form button:hover {
+            background-color: #0a58ca;
+            transform: translateY(-2px);
+        }
+
+        /* Messages */
+        .message-box {
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .message-success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .message-error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 80px;
+                padding: 20px 5px;
+            }
+            .sidebar a span, .sidebar-logo span {
+                display: none;
+            }
+            .sidebar a {
+                justify-content: center;
+                padding: 15px 10px;
+                margin: 0 5px 12px 5px;
+            }
+            .sidebar-logo {
+                margin: 0 5px 25px 5px;
+            }
+            .main-wrapper {
+                margin-left: 80px;
+            }
+            .main-content {
+                padding: 20px;
+            }
+            .inner-topbar {
+                padding: 15px 20px;
+            }
+            .page-title {
+                font-size: 1.5rem;
+            }
+        }
+        /* Định dạng form đăng ký khóa học */
+#registerForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 12px;
+}
+
+/* Dropdown đẹp */
+#register_course_id {
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+#register_course_id:focus {
+    border-color: #007bff;
+}
+
+/* Nút Register */
+#registerForm button {
+    padding: 10px 16px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#registerForm button:hover {
+    background-color: #0056b3;
+}
+
+/* Chi tiết khóa học - đẹp hơn */
+#courseDetailBox {
+    background: #f9f9f9;
+    border-left: 5px solid #007bff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#courseDetailBox h3 {
+    margin: 0 0 10px;
+    color: #007bff;
+}
+
+#courseDetailBox p {
+    margin: 6px 0;
+}
+.course-container {
+    display: flex;
+    gap: 30px; /* Khoảng cách giữa 2 phần */
+    align-items: flex-start;
+}
+
+.left-content {
+    flex: 1;
+    /* Tuỳ chọn: bạn có thể đặt chiều rộng cụ thể */
+}
+
+.right-content {
+    flex: 1;
+    /* Tuỳ chọn: đặt chiều rộng cụ thể, hoặc margin-left */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
